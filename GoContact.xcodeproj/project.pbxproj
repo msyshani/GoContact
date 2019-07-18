@@ -14,6 +14,12 @@
 		3758CD0822E0DB0C00815080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3758CD0622E0DB0C00815080 /* LaunchScreen.storyboard */; };
 		3758CD1322E0DB0C00815080 /* GoContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD1222E0DB0C00815080 /* GoContactTests.swift */; };
 		3758CD1E22E0DB0C00815080 /* GoContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD1D22E0DB0C00815080 /* GoContactUITests.swift */; };
+		3758CD2D22E0E3DA00815080 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD2C22E0E3DA00815080 /* HomeViewController.swift */; };
+		3758CD2F22E0E3FD00815080 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD2E22E0E3FD00815080 /* HomePresenter.swift */; };
+		3758CD3122E0E41800815080 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3022E0E41800815080 /* HomeInteractor.swift */; };
+		3758CD3322E0E42A00815080 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3222E0E42A00815080 /* HomeRouter.swift */; };
+		3758CD3522E0E43A00815080 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3422E0E43A00815080 /* HomeEntity.swift */; };
+		3758CD3722E0E5F500815080 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3622E0E5F500815080 /* HomeProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		3758CD1922E0DB0C00815080 /* GoContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3758CD1D22E0DB0C00815080 /* GoContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoContactUITests.swift; sourceTree = "<group>"; };
 		3758CD1F22E0DB0C00815080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3758CD2C22E0E3DA00815080 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3758CD2E22E0E3FD00815080 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		3758CD3022E0E41800815080 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		3758CD3222E0E42A00815080 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		3758CD3422E0E43A00815080 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
+		3758CD3622E0E5F500815080 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,7 @@
 		3758CCFC22E0DB0900815080 /* GoContact */ = {
 			isa = PBXGroup;
 			children = (
+				3758CD2B22E0E3B500815080 /* Home */,
 				3758CCFD22E0DB0900815080 /* AppDelegate.swift */,
 				3758CCFF22E0DB0900815080 /* ViewController.swift */,
 				3758CD0122E0DB0A00815080 /* Main.storyboard */,
@@ -123,6 +136,19 @@
 				3758CD1F22E0DB0C00815080 /* Info.plist */,
 			);
 			path = GoContactUITests;
+			sourceTree = "<group>";
+		};
+		3758CD2B22E0E3B500815080 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3758CD2C22E0E3DA00815080 /* HomeViewController.swift */,
+				3758CD2E22E0E3FD00815080 /* HomePresenter.swift */,
+				3758CD3022E0E41800815080 /* HomeInteractor.swift */,
+				3758CD3222E0E42A00815080 /* HomeRouter.swift */,
+				3758CD3422E0E43A00815080 /* HomeEntity.swift */,
+				3758CD3622E0E5F500815080 /* HomeProtocol.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3758CD3722E0E5F500815080 /* HomeProtocol.swift in Sources */,
 				3758CD0022E0DB0900815080 /* ViewController.swift in Sources */,
+				3758CD3322E0E42A00815080 /* HomeRouter.swift in Sources */,
+				3758CD3522E0E43A00815080 /* HomeEntity.swift in Sources */,
 				3758CCFE22E0DB0900815080 /* AppDelegate.swift in Sources */,
+				3758CD2D22E0E3DA00815080 /* HomeViewController.swift in Sources */,
+				3758CD3122E0E41800815080 /* HomeInteractor.swift in Sources */,
+				3758CD2F22E0E3FD00815080 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
