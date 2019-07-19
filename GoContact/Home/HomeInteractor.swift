@@ -9,5 +9,14 @@
 import UIKit
 
 class HomeInteractor: NSObject {
+    weak var presenter:HomeInteractorToPresenterProtocol?
 
+}
+
+extension HomeInteractor : HomePresenterToInteractorProtocol{
+    
+    func fetchContactsFromService(){
+    
+    }
+    
 }

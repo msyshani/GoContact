@@ -18,7 +18,8 @@ class HomePresenter: NSObject {
 extension HomePresenter:HomeViewToPresenterProtocol{
     
     func viewDidLoad(){
-        
+        //Fetch contacts from service
+        fetchContact()
     }
     
     func fetchContact(){
@@ -52,5 +53,13 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 }
 
 extension HomePresenter:HomeInteractorToPresenterProtocol{
+    func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
+        
+    }
+    
+    func contactFetchedRequestFailed(withError error: Error){
+        
+    }
+    
     
 }

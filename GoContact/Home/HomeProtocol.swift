@@ -28,9 +28,12 @@ protocol HomePresenterToViewProtocol:class {
 
 //MARK: Presenter and Interactor
 protocol HomePresenterToInteractorProtocol:class {
+    func fetchContactsFromService()
     
 }
 protocol HomeInteractorToPresenterProtocol:class {
+    func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity])
+    func contactFetchedRequestFailed(withError error: Error)
     
 }
 
