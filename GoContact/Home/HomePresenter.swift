@@ -9,5 +9,48 @@
 import UIKit
 
 class HomePresenter: NSObject {
+    weak var view:HomePresenterToViewProtocol?
+    var interactor:HomePresenterToInteractorProtocol?
+    var router:HomePresenterToRouterProtocol?
 
+}
+
+extension HomePresenter:HomeViewToPresenterProtocol{
+    
+    func viewDidLoad(){
+        
+    }
+    
+    func fetchContact(){
+        
+    }
+    
+    func addContact(){
+        
+    }
+    
+    //TableView
+    func registerCells(forTableView tableView: UITableView) {
+    }
+    
+    func numberOfSection(indexPath:IndexPath)->Int{
+        return 1 //Will change later
+    }
+    
+    func numberOfRow(inSection indexPath:IndexPath)->Int{
+        return 10 //Will change later
+    }
+    
+    func cellForRow(atIndexPath index:IndexPath)->UITableViewCell{
+        return UITableViewCell() //Will change later
+    }
+    
+    func selectRow(atIndexPath index:IndexPath){
+        
+    }
+    
+}
+
+extension HomePresenter:HomeInteractorToPresenterProtocol{
+    
 }
