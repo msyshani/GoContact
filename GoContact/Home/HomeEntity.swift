@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ContactEntity{
+struct ContactEntity:Codable{
     var id:Int?
     var firstName:String?
     var lastName:String?

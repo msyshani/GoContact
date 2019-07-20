@@ -17,3 +17,22 @@ struct Contstants {
         
     }
 }
+
+enum NetwokError: Error {
+    case unknown
+    case parsing
+    case invalidData
+}
+
+extension NetwokError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unknown:
+            return NSLocalizedString("Something went wrong", comment: "Unknown Error")
+        case .parsing:
+            return NSLocalizedString("Unable to parse data form response", comment: "Invalid Error")
+        case .invalidData:
+            return NSLocalizedString("Response is not is appropriate format", comment: "Invalid data")
+        }
+    }
+}
