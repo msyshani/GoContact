@@ -54,11 +54,11 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
-        
+        self.view?.reloadTable()
     }
     
     func contactFetchedRequestFailed(withError error: Error){
-        
+        self.view?.displayError(errorMessage: error.localizedDescription)
     }
     
     

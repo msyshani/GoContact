@@ -31,5 +31,12 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController : HomePresenterToViewProtocol{
+    func reloadTable(){
+        
+    }
+    
+    func displayError(errorMessage:String){
+        
+    }
     
 }

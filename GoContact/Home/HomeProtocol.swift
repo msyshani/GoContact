@@ -23,7 +23,8 @@ protocol HomeViewToPresenterProtocol:class {
 }
 
 protocol HomePresenterToViewProtocol:class {
-    
+    func reloadTable()
+    func displayError(errorMessage:String)
 }
 
 //MARK: Presenter and Interactor
