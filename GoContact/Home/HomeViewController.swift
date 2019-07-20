@@ -55,6 +55,9 @@ extension HomeViewController :UITableViewDataSource{
 }
 
 extension HomeViewController :UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter?.selectRow(atIndexPath: indexPath)
+    }
     
 }
 

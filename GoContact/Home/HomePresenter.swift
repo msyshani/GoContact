@@ -50,7 +50,7 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     }
     
     func selectRow(atIndexPath index:IndexPath){
-        
+        self.router?.pushContactDetailScreen(from: self.view, forContact: conatctList[index.row])
     }
     
 }

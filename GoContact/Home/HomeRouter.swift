@@ -43,5 +43,12 @@ class HomeRouter: NSObject {
 }
 
 extension HomeRouter : HomePresenterToRouterProtocol{
+    func pushContactDetailScreen(from view: HomePresenterToViewProtocol?, forContact contact: ContactEntity) {
+        if let contactDetailViewController = ContactDetailRouter.createContactDetailModule(entity: contact){
+            if let sourceView = view as? UIViewController {
+                sourceView.navigationController?.pushViewController(contactDetailViewController, animated: true)
+            }
+        }
+    }
     
 }
