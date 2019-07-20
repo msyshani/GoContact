@@ -9,5 +9,6 @@
 import UIKit
 
 class HomeRouter: NSObject {
+    weak var presenter:HomeRouterToPresenterProtocol?
 
 }

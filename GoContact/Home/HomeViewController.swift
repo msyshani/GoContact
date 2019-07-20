@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var presenter: HomeViewToPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,4 +28,8 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController : HomePresenterToViewProtocol{
+    
 }
