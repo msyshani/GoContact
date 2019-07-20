@@ -55,7 +55,7 @@ class ContactDetailViewController: UIViewController {
 
 
 extension ContactDetailViewController : ContactDetailPresenterToViewProtocol{
-    func showContactDetail(forPost model: ContactEntity) {
+    func showContactDetail(forContact model: ContactEntity) {
         if let imageStr = model.profilePicUrl{
             ImageDownloader.downloader.getDownloadedImage(urlStr: imageStr) { (image) in
                 if let img = image{
@@ -70,6 +70,14 @@ extension ContactDetailViewController : ContactDetailPresenterToViewProtocol{
             favouriteButton.setImage( #imageLiteral(resourceName: "home_favourite"), for: .normal)
         }else{
             favouriteButton.setImage( #imageLiteral(resourceName: "favourite_button"), for: .normal)
+        }
+        
+        if let email = model.email{
+            self.emailLabel.text = email
+        }
+        
+        if let mobile = model.phoneNumber{
+            self.mobileLabel.text = mobile
         }
     }
     

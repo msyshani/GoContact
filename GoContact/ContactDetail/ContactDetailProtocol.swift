@@ -24,7 +24,7 @@ protocol ContactDetailViewToPresenterProtocol:class {
 
 protocol ContactDetailPresenterToViewProtocol:class {
     var presenter: ContactDetailViewToPresenterProtocol? {get set}
-    func showContactDetail(forPost model: ContactEntity)
+    func showContactDetail(forContact model: ContactEntity)
     func displayError(errorMessage:String)
 }
 
@@ -36,13 +36,14 @@ protocol ContactDetailPresenterToInteractorProtocol:class {
     
 }
 protocol ContactDetailInteractorToPresenterProtocol:class {
-    func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity])
+    func contactFetchedRequestCompletedSuccessfully(model:ContactEntity)
     func contactFetchedRequestFailed(withError error: Error)
     
 }
 
 //MARK: Presenter and Router
 protocol ContactDetailPresenterToRouterProtocol:class {
+    func pushContactEditScreen(from view: ContactDetailPresenterToViewProtocol?, forContact contact: ContactEntity)
     
 }
 protocol ContactDetailRouterToPresenterProtocol:class {

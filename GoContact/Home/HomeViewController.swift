@@ -49,6 +49,7 @@ extension HomeViewController :UITableViewDataSource{
         if let contactModel = self.presenter?.contact(atIndexPath: indexPath){
             cell.configureCell(model: contactModel)
         }
+        cell.selectionStyle = .none
         return cell
     }
     

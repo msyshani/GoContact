@@ -22,7 +22,8 @@ class ContactDetailPresenter: NSObject {
 extension ContactDetailPresenter: ContactDetailViewToPresenterProtocol{
     func viewDidLoad() {
         if let conatctsEntity = self.interactor?.contact {
-            self.view?.showContactDetail(forPost: conatctsEntity)
+            self.view?.showContactDetail(forContact: conatctsEntity)
+            self.interactor?.fetchContactsFromService()
         }
     }
     
@@ -43,16 +44,26 @@ extension ContactDetailPresenter: ContactDetailViewToPresenterProtocol{
     }
     
     func editContact(){
+        if let conatctsEntity = self.interactor?.contact {
+            self.router?.pushContactEditScreen(from: self.view, forContact: conatctsEntity)
+        }
         
     }
 }
 
 extension ContactDetailPresenter:  ContactDetailInteractorToPresenterProtocol{
-    func contactFetchedRequestCompletedSuccessfully(modelArray: [ContactEntity]) {
+    func contactFetchedRequestCompletedSuccessfully(model: ContactEntity) {
+        DispatchQueue.main.async {
+            self.interactor?.contact = model
+            self.view?.showContactDetail(forContact: model)
+        }
         
     }
     
     func contactFetchedRequestFailed(withError error: Error) {
+        DispatchQueue.main.async {
+    
+        }
         
     }
     

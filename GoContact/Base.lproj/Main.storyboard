@@ -299,6 +299,92 @@
             </objects>
             <point key="canvasLocation" x="1809" y="108"/>
         </scene>
+        <!--Edit Contact View Controller-->
+        <scene sceneID="LbZ-0h-Lfv">
+            <objects>
+                <viewController storyboardIdentifier="EditContactViewController" id="mMC-7W-IrF" customClass="EditContactViewController" customModule="GoContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAJ-W2-oaT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eBK-EY-H4y">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="TF5-wv-sYc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="272"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ks-Xx-hCc">
+                                            <rect key="frame" x="132" y="61" width="150" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="Bhw-yB-sgU"/>
+                                                <constraint firstAttribute="width" constant="150" id="Tfk-46-Vkx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvh-dL-m6m">
+                                            <rect key="frame" x="242" y="171" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Adn-rj-kex"/>
+                                                <constraint firstAttribute="width" constant="40" id="Mq9-SS-KjH"/>
+                                            </constraints>
+                                            <state key="normal" image="camera_button"/>
+                                            <connections>
+                                                <action selector="cameraButtonClicked" destination="mMC-7W-IrF" eventType="touchUpInside" id="Ivy-dh-h7T"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWt-4r-54d">
+                                            <rect key="frame" x="20" y="20" width="53" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <state key="normal" title="Cancel"/>
+                                            <connections>
+                                                <action selector="cancelButtonClicked" destination="mMC-7W-IrF" eventType="touchUpInside" id="3xl-2v-LoK"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QR-a7-iRh">
+                                            <rect key="frame" x="348" y="20" width="46" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <state key="normal" title="Done"/>
+                                            <connections>
+                                                <action selector="saveContactButtonClicked" destination="mMC-7W-IrF" eventType="touchUpInside" id="SXp-Ba-l39"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.92941176469999998" green="0.89411764709999997" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="1Ks-Xx-hCc" firstAttribute="centerY" secondItem="TF5-wv-sYc" secondAttribute="centerY" id="ANh-iw-Lav"/>
+                                        <constraint firstAttribute="trailing" secondItem="8QR-a7-iRh" secondAttribute="trailing" constant="20" id="M8I-YR-0d9"/>
+                                        <constraint firstItem="1Ks-Xx-hCc" firstAttribute="centerX" secondItem="TF5-wv-sYc" secondAttribute="centerX" id="P64-Oj-j7D"/>
+                                        <constraint firstItem="OWt-4r-54d" firstAttribute="leading" secondItem="TF5-wv-sYc" secondAttribute="leading" constant="20" id="PpY-Aa-7pR"/>
+                                        <constraint firstItem="jvh-dL-m6m" firstAttribute="bottom" secondItem="1Ks-Xx-hCc" secondAttribute="bottom" id="nHt-zp-bJ6"/>
+                                        <constraint firstItem="jvh-dL-m6m" firstAttribute="trailing" secondItem="1Ks-Xx-hCc" secondAttribute="trailing" id="rOa-tF-GCl"/>
+                                        <constraint firstItem="8QR-a7-iRh" firstAttribute="top" secondItem="TF5-wv-sYc" secondAttribute="top" constant="20" id="sl1-hm-rRt"/>
+                                        <constraint firstItem="OWt-4r-54d" firstAttribute="top" secondItem="TF5-wv-sYc" secondAttribute="top" constant="20" id="vFB-fY-BrG"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="mMC-7W-IrF" id="Rd5-SV-o8O"/>
+                                    <outlet property="delegate" destination="mMC-7W-IrF" id="VCc-YC-qpp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eBK-EY-H4y" secondAttribute="bottom" id="3U1-Jc-32m"/>
+                            <constraint firstItem="eBK-EY-H4y" firstAttribute="trailing" secondItem="MxE-aG-rAN" secondAttribute="trailing" id="4Kp-Xg-3bk"/>
+                            <constraint firstItem="eBK-EY-H4y" firstAttribute="top" secondItem="MxE-aG-rAN" secondAttribute="top" id="DDW-fZ-aRD"/>
+                            <constraint firstItem="eBK-EY-H4y" firstAttribute="leading" secondItem="MxE-aG-rAN" secondAttribute="leading" id="rrK-AQ-Wze"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MxE-aG-rAN"/>
+                    </view>
+                    <connections>
+                        <outlet property="contactEditTable" destination="eBK-EY-H4y" id="WI3-rq-mhv"/>
+                        <outlet property="contactImage" destination="1Ks-Xx-hCc" id="rVG-pf-G34"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRi-Zr-I4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2571.0144927536235" y="108.48214285714285"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="BJl-gE-7BU">
             <objects>
@@ -320,6 +406,7 @@
     </scenes>
     <resources>
         <image name="call_button" width="45" height="44"/>
+        <image name="camera_button" width="41" height="41"/>
         <image name="email_button" width="45" height="44"/>
         <image name="favourite_button" width="44" height="44"/>
         <image name="message_button" width="44" height="44"/>

@@ -51,4 +51,12 @@ extension HomeRouter : HomePresenterToRouterProtocol{
         }
     }
     
+    func pushAddContactScreen(from view: HomePresenterToViewProtocol?, forContact contact: ContactEntity) {
+        if let contactDetailViewController = EditContactRouter.createContactEditModule(entity: contact){
+            if let sourceView = view as? UIViewController {
+                sourceView.navigationController?.present(contactDetailViewController, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

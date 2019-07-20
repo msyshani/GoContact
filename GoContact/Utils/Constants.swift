@@ -13,6 +13,7 @@ struct Contstants {
         static let BASE_URL = "http://gojek-contacts-app.herokuapp.com/"
         struct ENDPOINTS {
             static let CONTACT_LIST = "contacts.json"
+            static let GET_CONTACT = "contacts/<id>.json"
         }
         
     }

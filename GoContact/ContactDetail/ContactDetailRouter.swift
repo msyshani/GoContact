@@ -38,5 +38,12 @@ class ContactDetailRouter: NSObject {
 }
 
 extension ContactDetailRouter : ContactDetailPresenterToRouterProtocol{
+    func pushContactEditScreen(from view: ContactDetailPresenterToViewProtocol?, forContact contact: ContactEntity) {
+        if let contactDetailViewController = EditContactRouter.createContactEditModule(entity: contact){
+            if let sourceView = view as? UIViewController {
+                sourceView.navigationController?.present(contactDetailViewController, animated: true, completion: nil)
+            }
+        }
+    }
     
 }

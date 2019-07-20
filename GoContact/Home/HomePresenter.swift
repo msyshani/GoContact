@@ -33,7 +33,8 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     }
     
     func addContact(){
-        
+        let contact = ContactEntity(dict: [:])
+        self.router?.pushAddContactScreen(from: self.view, forContact: contact)
     }
     
     //TableView

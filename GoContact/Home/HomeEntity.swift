@@ -15,6 +15,12 @@ struct ContactEntity:Codable{
     var profilePicUrl:String?
     var isFavorite:Bool
     var url:String?
+    var phoneNumber:String?
+    var email:String?
+    
+    init(dict:[String:Any]) {
+        self.isFavorite = false
+    }
     
     enum CodingKeys :String, CodingKey {
         case id
@@ -23,6 +29,8 @@ struct ContactEntity:Codable{
         case profilePicUrl = "profile_pic"
         case isFavorite = "favorite"
         case url
+        case phoneNumber = "phone_number"
+        case email
     }
     
 }

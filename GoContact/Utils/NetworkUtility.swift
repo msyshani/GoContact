@@ -19,10 +19,24 @@ class NetworkUtility: NSObject {
         return session
     }
     
-    func getRequest(url:String?)->URLRequest?{
+    enum HTTPMethod {
+        case get
+        case post
+        case put
+    }
+    
+    func getRequest(url:String?, method:HTTPMethod)->URLRequest?{
         if let urlString = url{
             if let url = URL(string: urlString){
-                let request = URLRequest.init(url: url)
+                var request = URLRequest.init(url: url)
+                switch method{
+                case .get:
+                    request.httpMethod = "GET"
+                case .post:
+                    request.httpMethod = "POST"
+                case .put:
+                    request.httpMethod = "PUT"
+                }
                 return request
             }
         }
@@ -30,7 +44,7 @@ class NetworkUtility: NSObject {
     }
     
     func fetchAllContacts(urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
-        if let request = getRequest(url: urlString){
+        if let request = getRequest(url: urlString, method: .get){
             urlSession.dataTask(with: request) { (data, response, error) in
                 if let contactData = data{
                     onSuccess(contactData)
@@ -43,6 +57,39 @@ class NetworkUtility: NSObject {
         }
     }
     
+    func updateContacts(param:ContactEntity, urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
+        if var request = getRequest(url: urlString, method: .put){
+            let data = try? JSONEncoder().encode(param)
+            request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "content-type")
+            urlSession.dataTask(with: request) { (data, response, error) in
+                if let contactData = data{
+                    onSuccess(contactData)
+                }else if let err = error{
+                    onError(err)
+                }else{
+                    onError(NetwokError.unknown)
+                }
+                }.resume()
+        }
+    }
+    
+    func addContacts(param:ContactEntity, urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
+        if var request = getRequest(url: urlString, method: .post){
+            let data = try? JSONEncoder().encode(param)
+            request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "content-type")
+            urlSession.dataTask(with: request) { (data, response, error) in
+                if let contactData = data{
+                    onSuccess(contactData)
+                }else if let err = error{
+                    onError(err)
+                }else{
+                    onError(NetwokError.unknown)
+                }
+                }.resume()
+        }
+    }
     
 
 }
