@@ -6,12 +6,17 @@
 //  Copyright © 2019 AppEngineer. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class HomePresenter: NSObject {
     weak var view:HomePresenterToViewProtocol?
     var interactor:HomePresenterToInteractorProtocol?
     var router:HomePresenterToRouterProtocol?
+    
+    var conatctList: [ContactEntity] = []
+    var contactsCount: Int {
+        return conatctList.count
+    }
 
 }
 
@@ -23,7 +28,7 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     }
     
     func fetchContact(){
-        
+        interactor?.fetchContactsFromService()
     }
     
     func addContact(){
@@ -31,19 +36,19 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     }
     
     //TableView
-    func registerCells(forTableView tableView: UITableView) {
+    func registerCells() {
     }
     
-    func numberOfSection(indexPath:IndexPath)->Int{
+    func numberOfSection()->Int{
         return 1 //Will change later
     }
     
-    func numberOfRow(inSection indexPath:IndexPath)->Int{
-        return 10 //Will change later
+    func numberOfRow(inSection section:Int)->Int{
+        return contactsCount //Will change later
     }
     
-    func cellForRow(atIndexPath index:IndexPath)->UITableViewCell{
-        return UITableViewCell() //Will change later
+    func contact(atIndexPath index:IndexPath)->ContactEntity{
+        return conatctList[index.row] //Will change later
     }
     
     func selectRow(atIndexPath index:IndexPath){
@@ -54,6 +59,7 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
+        self.conatctList = modelArray
         self.view?.reloadTable()
     }
     

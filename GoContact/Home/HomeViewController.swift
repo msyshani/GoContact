@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var presenter: HomeViewToPresenterProtocol?
+    @IBOutlet weak var contactTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,28 @@ class HomeViewController: UIViewController {
 
 }
 
+extension HomeViewController :UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter?.numberOfSection() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numberOfRow(inSection: section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
+
+extension HomeViewController :UITableViewDelegate{
+    
+}
+
 extension HomeViewController : HomePresenterToViewProtocol{
     func reloadTable(){
-        
+        self.contactTable.reloadData()
     }
     
     func displayError(errorMessage:String){

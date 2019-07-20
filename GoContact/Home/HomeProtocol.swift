@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 //MARK: Viewcontroller and presenter
 protocol HomeViewToPresenterProtocol:class {
@@ -15,10 +14,10 @@ protocol HomeViewToPresenterProtocol:class {
     func fetchContact()
     func addContact()
     //TableView
-    func registerCells(forTableView tableView: UITableView)
-    func numberOfSection(indexPath:IndexPath)->Int
-    func numberOfRow(inSection indexPath:IndexPath)->Int
-    func cellForRow(atIndexPath index:IndexPath)->UITableViewCell
+    func registerCells()
+    func numberOfSection()->Int
+    func numberOfRow(inSection section:Int)->Int
+    func contact(atIndexPath index:IndexPath)->ContactEntity
     func selectRow(atIndexPath index:IndexPath)
 }
 
