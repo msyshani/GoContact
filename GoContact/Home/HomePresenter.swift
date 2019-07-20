@@ -21,10 +21,11 @@ class HomePresenter: NSObject {
 }
 
 extension HomePresenter:HomeViewToPresenterProtocol{
-    
+
     func viewDidLoad(){
         //Fetch contacts from service
         fetchContact()
+        
     }
     
     func fetchContact(){
@@ -36,9 +37,6 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     }
     
     //TableView
-    func registerCells() {
-    }
-    
     func numberOfSection()->Int{
         return 1 //Will change later
     }

@@ -10,10 +10,10 @@ import UIKit
 
 struct ContactEntity:Codable{
     var id:Int?
-    var firstName:String?
-    var lastName:String?
+    var firstName:String = ""
+    var lastName:String = ""
     var profilePicUrl:String?
-    var isFavorite:Bool?
+    var isFavorite:Bool
     var url:String?
     
     enum CodingKeys :String, CodingKey {

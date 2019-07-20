@@ -18,7 +18,6 @@ protocol HomeViewToPresenterProtocol:class {
     func fetchContact()
     func addContact()
     //TableView
-    func registerCells()
     func numberOfSection()->Int
     func numberOfRow(inSection section:Int)->Int
     func contact(atIndexPath index:IndexPath)->ContactEntity

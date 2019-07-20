@@ -22,6 +22,10 @@
 		3758CD3722E0E5F500815080 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3622E0E5F500815080 /* HomeProtocol.swift */; };
 		3758CD3A22E1E6FD00815080 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3922E1E6FD00815080 /* Constants.swift */; };
 		3758CD3C22E1E8C500815080 /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3758CD3B22E1E8C500815080 /* NetworkUtility.swift */; };
+		3771330B22E2F2D8003AB13A /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771330922E2F2D8003AB13A /* ContactTableViewCell.swift */; };
+		3771330C22E2F2D8003AB13A /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771330A22E2F2D8003AB13A /* ContactTableViewCell.xib */; };
+		3771330F22E2F594003AB13A /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771330D22E2F594003AB13A /* ImageDownloader.swift */; };
+		3771331022E2F594003AB13A /* ReusableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771330E22E2F594003AB13A /* ReusableHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		3758CD3622E0E5F500815080 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		3758CD3922E1E6FD00815080 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3758CD3B22E1E8C500815080 /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
+		3771330922E2F2D8003AB13A /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		3771330A22E2F2D8003AB13A /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		3771330D22E2F594003AB13A /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		3771330E22E2F594003AB13A /* ReusableHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 		3758CD2B22E0E3B500815080 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3771330622E2F283003AB13A /* ReusableViews */,
 				3758CD2C22E0E3DA00815080 /* HomeViewController.swift */,
 				3758CD2E22E0E3FD00815080 /* HomePresenter.swift */,
 				3758CD3022E0E41800815080 /* HomeInteractor.swift */,
@@ -159,10 +168,21 @@
 		3758CD3822E1E6D400815080 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3771330D22E2F594003AB13A /* ImageDownloader.swift */,
+				3771330E22E2F594003AB13A /* ReusableHandler.swift */,
 				3758CD3922E1E6FD00815080 /* Constants.swift */,
 				3758CD3B22E1E8C500815080 /* NetworkUtility.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3771330622E2F283003AB13A /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				3771330922E2F2D8003AB13A /* ContactTableViewCell.swift */,
+				3771330A22E2F2D8003AB13A /* ContactTableViewCell.xib */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3771330C22E2F2D8003AB13A /* ContactTableViewCell.xib in Resources */,
 				3758CD0822E0DB0C00815080 /* LaunchScreen.storyboard in Resources */,
 				3758CD0522E0DB0C00815080 /* Assets.xcassets in Resources */,
 				3758CD0322E0DB0A00815080 /* Main.storyboard in Resources */,
@@ -296,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3771331022E2F594003AB13A /* ReusableHandler.swift in Sources */,
 				3758CD3722E0E5F500815080 /* HomeProtocol.swift in Sources */,
 				3758CD0022E0DB0900815080 /* ViewController.swift in Sources */,
+				3771330B22E2F2D8003AB13A /* ContactTableViewCell.swift in Sources */,
 				3758CD3322E0E42A00815080 /* HomeRouter.swift in Sources */,
 				3758CD3522E0E43A00815080 /* HomeEntity.swift in Sources */,
 				3758CCFE22E0DB0900815080 /* AppDelegate.swift in Sources */,
@@ -305,6 +328,7 @@
 				3758CD3122E0E41800815080 /* HomeInteractor.swift in Sources */,
 				3758CD2F22E0E3FD00815080 /* HomePresenter.swift in Sources */,
 				3758CD3A22E1E6FD00815080 /* Constants.swift in Sources */,
+				3771330F22E2F594003AB13A /* ImageDownloader.swift in Sources */,
 				3758CD3C22E1E8C500815080 /* NetworkUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

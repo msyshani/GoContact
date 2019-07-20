@@ -14,10 +14,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registerCells()
         // Do any additional setup after loading the view.
     }
     
+    func registerCells(){
+        self.contactTable.registerReusableViewCell(ContactTableViewCell.self)
+    }
 
     /*
     // MARK: - Navigation
@@ -41,7 +44,11 @@ extension HomeViewController :UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell:ContactTableViewCell = tableView.dequeueReusableViewCell(indexPath: indexPath)
+        if let contactModel = self.presenter?.contact(atIndexPath: indexPath){
+            cell.configureCell(model: contactModel)
+        }
+        return cell
     }
     
 }
