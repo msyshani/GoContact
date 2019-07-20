@@ -41,6 +41,10 @@ extension ContactDetailPresenter: ContactDetailViewToPresenterProtocol{
     func makeFavaourite(){
         
     }
+    
+    func editContact(){
+        
+    }
 }
 
 extension ContactDetailPresenter:  ContactDetailInteractorToPresenterProtocol{

@@ -46,6 +46,10 @@ class ContactDetailViewController: UIViewController {
         self.presenter?.makeFavaourite()
     }
     
+    @IBAction func EditContact(){
+        presenter?.editContact()
+    }
+    
 
 }
 

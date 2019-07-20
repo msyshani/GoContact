@@ -19,6 +19,7 @@ protocol ContactDetailViewToPresenterProtocol:class {
     func makeCall()
     func sendEmail()
     func makeFavaourite()
+    func editContact()
 }
 
 protocol ContactDetailPresenterToViewProtocol:class {
