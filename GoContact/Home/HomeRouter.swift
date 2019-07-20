@@ -18,12 +18,14 @@ class HomeRouter: NSObject {
         return UIStoryboard(name: "Main", bundle: bundle)
     }
     
-    static func createHomeModule()->UIViewController?{
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController{
+    static func createHomeModule()->UINavigationController?{
+        let navController:UINavigationController = storyboard.instantiateViewController(withIdentifier: "ContactsNavigationController") as! UINavigationController
+        
+        if let viewController = navController.children.first as? HomeViewController {
             let presenter: HomeViewToPresenterProtocol & HomeInteractorToPresenterProtocol  = HomePresenter()
             let interactor : HomePresenterToInteractorProtocol = HomeInteractor()
             let router : HomePresenterToRouterProtocol = HomeRouter()
-        
+            
             //Presenter
             presenter.view = viewController
             presenter.interactor = interactor
@@ -32,9 +34,10 @@ class HomeRouter: NSObject {
             interactor.presenter = presenter
             //View
             viewController.presenter = presenter
-            return viewController
+            return navController
         }
-        return nil
+        
+        return UINavigationController()
     }
 
 }
