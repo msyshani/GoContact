@@ -21,6 +21,12 @@ class ContactTableViewCell: UITableViewCell ,ReusableViewProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        contactImageView.layer.cornerRadius = 20
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contactImageView.image = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,6 +44,13 @@ class ContactTableViewCell: UITableViewCell ,ReusableViewProtocol {
             }
         }
         contactName.text = [model.firstName, model.lastName].compactMap{ $0 }.joined(separator: " ")
+        
+        if model.isFavorite{
+            favouriteButton.isHidden = false
+            favouriteButton.setImage( #imageLiteral(resourceName: "home_favourite"), for: .normal)
+        }else{
+            favouriteButton.isHidden = true
+        }
         
     }
     

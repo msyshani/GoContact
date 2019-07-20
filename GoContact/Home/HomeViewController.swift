@@ -15,6 +15,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+        contactTable.estimatedRowHeight = 60
+        contactTable.rowHeight = 60 //UITableView.automaticDimension
+        self.presenter?.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     

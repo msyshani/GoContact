@@ -57,12 +57,17 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
-        self.conatctList = modelArray
-        self.view?.reloadTable()
+        DispatchQueue.main.async {
+            self.conatctList = modelArray
+            self.view?.reloadTable()
+        }
     }
     
     func contactFetchedRequestFailed(withError error: Error){
-        self.view?.displayError(errorMessage: error.localizedDescription)
+        DispatchQueue.main.async {
+            self.view?.displayError(errorMessage: error.localizedDescription)
+        }
+        
     }
     
     

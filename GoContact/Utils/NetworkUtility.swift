@@ -29,11 +29,17 @@ class NetworkUtility: NSObject {
         return nil
     }
     
-    func fetchAllContacts(urlString:String, onSuccess:Success, onError:Failure){
+    func fetchAllContacts(urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
         if let request = getRequest(url: urlString){
             urlSession.dataTask(with: request) { (data, response, error) in
-                
-                }.resume()
+                if let contactData = data{
+                    onSuccess(contactData)
+                }else if let err = error{
+                    onError(err)
+                }else{
+                    onError(NetwokError.unknown)
+                }
+            }.resume()
         }
     }
     
