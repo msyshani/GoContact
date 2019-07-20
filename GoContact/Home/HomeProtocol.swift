@@ -10,6 +10,10 @@ import Foundation
 
 //MARK: Viewcontroller and presenter
 protocol HomeViewToPresenterProtocol:class {
+    var view:HomePresenterToViewProtocol? {get set}
+    var interactor:HomePresenterToInteractorProtocol? {get set}
+    var router:HomePresenterToRouterProtocol? {get set}
+    
     func viewDidLoad()
     func fetchContact()
     func addContact()
@@ -22,12 +26,14 @@ protocol HomeViewToPresenterProtocol:class {
 }
 
 protocol HomePresenterToViewProtocol:class {
+    var presenter: HomeViewToPresenterProtocol? {get set}
     func reloadTable()
     func displayError(errorMessage:String)
 }
 
 //MARK: Presenter and Interactor
 protocol HomePresenterToInteractorProtocol:class {
+    var presenter:HomeInteractorToPresenterProtocol? {get set}
     func fetchContactsFromService()
     
 }
