@@ -219,6 +219,9 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mobile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKE-eB-MLE">
                                                 <rect key="frame" x="20" y="10" width="105.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="105.5" id="esx-Nc-2zA"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -234,7 +237,6 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="TKE-eB-MLE" secondAttribute="bottom" constant="10" id="3sF-DF-yCM"/>
                                             <constraint firstItem="TKE-eB-MLE" firstAttribute="top" secondItem="tfg-gl-KLw" secondAttribute="top" constant="10" id="Cw9-HB-qpy"/>
-                                            <constraint firstItem="mep-Fb-sFN" firstAttribute="width" secondItem="tfg-gl-KLw" secondAttribute="width" multiplier="0.6" id="MeX-kh-ufS"/>
                                             <constraint firstItem="TKE-eB-MLE" firstAttribute="leading" secondItem="tfg-gl-KLw" secondAttribute="leading" constant="20" id="THv-lb-gyZ"/>
                                             <constraint firstAttribute="height" constant="60" id="XPP-Vo-rl8"/>
                                             <constraint firstItem="mep-Fb-sFN" firstAttribute="top" secondItem="TKE-eB-MLE" secondAttribute="top" id="Z6X-qm-okZ"/>
@@ -244,16 +246,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-jG-cSe">
-                                        <rect key="frame" x="0.0" y="60" width="413.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEa-OS-Bqw">
                                                 <rect key="frame" x="20" y="10" width="105.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="105.5" id="Pyu-XS-YdD"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msy.shani@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-nJ-GYk">
-                                                <rect key="frame" x="145.5" y="10" width="248" height="40"/>
+                                                <rect key="frame" x="145.5" y="10" width="248.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -265,7 +270,6 @@
                                             <constraint firstItem="xEa-OS-Bqw" firstAttribute="top" secondItem="dSA-jG-cSe" secondAttribute="top" constant="10" id="4vH-du-h69"/>
                                             <constraint firstItem="xEa-OS-Bqw" firstAttribute="height" secondItem="uKm-nJ-GYk" secondAttribute="height" id="5nD-Cn-bKb"/>
                                             <constraint firstItem="xEa-OS-Bqw" firstAttribute="leading" secondItem="dSA-jG-cSe" secondAttribute="leading" constant="20" id="A2G-I2-9Eo"/>
-                                            <constraint firstItem="uKm-nJ-GYk" firstAttribute="width" secondItem="dSA-jG-cSe" secondAttribute="width" multiplier="0.6" id="Lf4-ru-y8a"/>
                                             <constraint firstItem="uKm-nJ-GYk" firstAttribute="top" secondItem="xEa-OS-Bqw" secondAttribute="top" id="Qyr-Q1-J0W"/>
                                             <constraint firstItem="uKm-nJ-GYk" firstAttribute="leading" secondItem="xEa-OS-Bqw" secondAttribute="trailing" constant="20" id="TRT-Q7-uL1"/>
                                             <constraint firstAttribute="bottom" secondItem="xEa-OS-Bqw" secondAttribute="bottom" constant="10" id="gNj-Of-g6K"/>

@@ -60,19 +60,19 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     
     //TableView
     func numberOfSection()->Int{
-        return groupContactArray.count //Will change later
+        return groupContactArray.count
     }
     
     func numberOfRow(inSection section:Int)->Int{
-        return groupContactArray[section].count //Will change later
+        return groupContactArray[section].count
     }
     
     func contact(atIndexPath index:IndexPath)->ContactEntity{
-        return  groupContactArray[index.section][index.row]//conatctList[index.row] //Will change later
+        return  groupContactArray[index.section][index.row]
     }
     
     func selectRow(atIndexPath index:IndexPath){
-        self.router?.pushContactDetailScreen(from: self.view, forContact: conatctList[index.row])
+        self.router?.pushContactDetailScreen(from: self.view, forContact: groupContactArray[index.section][index.row])
     }
     
 }
@@ -80,7 +80,7 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
         DispatchQueue.main.async {
-            self.groupContactArray = self.getGroupArray(modelArray: self.conatctList)
+            self.groupContactArray = self.getGroupArray(modelArray: modelArray)
             self.view?.reloadTable()
         }
     }
