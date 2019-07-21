@@ -66,7 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="Guq-Jf-9G3">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="I3Q-qq-sSN">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="I3Q-qq-sSN">
                             <color key="tintColor" red="0.25490196079999999" green="0.60784313729999995" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addContacts" destination="BYZ-38-t0r" id="s2q-zm-KPd"/>
@@ -384,6 +384,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWt-4r-54d">
                                             <rect key="frame" x="20" y="20" width="53" height="33"/>
                                             <accessibility key="accessibilityConfiguration" identifier="EditContactcancelButton" label="cancelButton"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="53" id="8en-u4-iID"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
@@ -393,6 +396,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QR-a7-iRh">
                                             <rect key="frame" x="348" y="20" width="46" height="35"/>
                                             <accessibility key="accessibilityConfiguration" identifier="EditContactDoneButton" label="doneButton"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="HlL-Ty-9Uv"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <state key="normal" title="Done"/>
                                             <connections>

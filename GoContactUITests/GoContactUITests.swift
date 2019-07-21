@@ -9,6 +9,7 @@
 import XCTest
 
 class GoContactUITests: XCTestCase {
+    let app = XCUIApplication()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -25,15 +26,9 @@ class GoContactUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
     
     func testContactScreen(){
-        let app = XCUIApplication()
         let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
         XCTAssertTrue(table.waitForExistence(timeout: 30))
         table.tap()
@@ -46,7 +41,7 @@ class GoContactUITests: XCTestCase {
     }
     
     func testContactDetailScreen(){
-        let app = XCUIApplication()
+        
         let tablesQuery = app.tables
         let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
         XCTAssertTrue(table.waitForExistence(timeout: 30))
@@ -62,10 +57,9 @@ class GoContactUITests: XCTestCase {
     
     
     func testContactEditScreen(){
-        let app = XCUIApplication()
         let tablesQuery = app.tables
         let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
-        XCTAssertTrue(table.waitForExistence(timeout: 30))
+        XCTAssertTrue(table.waitForExistence(timeout: 60))
         table.tap()
         
         app.navigationBars["Contact Detail"].buttons["Edit"].tap()
@@ -75,8 +69,6 @@ class GoContactUITests: XCTestCase {
     
     
     func testAddContact(){
-        
-        let app = XCUIApplication()
         let addButton = app.navigationBars["Contact"].buttons["Add"]
         addButton.tap()
         
@@ -111,12 +103,9 @@ class GoContactUITests: XCTestCase {
         XCTAssertTrue(alertButton.waitForExistence(timeout: 10))
         alertButton.tap()
         
-        addButton.tap()
-        
     }
     
     func testAddContactError(){
-        let app = XCUIApplication()
         let addButton = app.navigationBars["Contact"].buttons["Add"]
         addButton.tap()
         
@@ -168,7 +157,7 @@ class GoContactUITests: XCTestCase {
         let alertButton = app.alerts.buttons["OK"]
         XCTAssertTrue(alertButton.waitForExistence(timeout: 10))
         alertButton.tap()
-        addButton.tap()
+        
         
     }
 
