@@ -20,6 +20,7 @@ protocol HomeViewToPresenterProtocol:class {
     func viewDidLoad()
     func fetchContact()
     func addContact()
+    func getGroupArray(modelArray:[ContactEntity])->[[ContactEntity]]
     //TableView
     func numberOfSection()->Int
     func numberOfRow(inSection section:Int)->Int

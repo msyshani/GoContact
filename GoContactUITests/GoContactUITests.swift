@@ -30,5 +30,146 @@ class GoContactUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    
+    func testContactScreen(){
+        let app = XCUIApplication()
+        let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
+        XCTAssertTrue(table.waitForExistence(timeout: 30))
+        table.tap()
+        
+        let contactButton = app.navigationBars["Contact Detail"].buttons["Contact"]
+        XCTAssertTrue(contactButton.waitForExistence(timeout: 3))
+        contactButton.tap()
+        
+        
+    }
+    
+    func testContactDetailScreen(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
+        XCTAssertTrue(table.waitForExistence(timeout: 30))
+        table.tap()
+        
+        app.navigationBars["Contact Detail"].buttons["Edit"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["EditContactcancelButton"]/*[[".buttons[\"cancelButton\"]",".buttons[\"EditContactcancelButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["contactDetailMessageButton"]/*[[".buttons[\"messageButton\"]",".buttons[\"contactDetailMessageButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["contactDetailCallButton"]/*[[".buttons[\"callButton\"]",".buttons[\"contactDetailCallButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["contactDetailMailButton"]/*[[".buttons[\"mailButton\"]",".buttons[\"contactDetailMailButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["contactDetailFavouriteButton"]/*[[".buttons[\"favouriteButton\"]",".buttons[\"contactDetailFavouriteButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+    }
+    
+    
+    func testContactEditScreen(){
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        let table = app.tables.children(matching: .cell).element(boundBy: 3).staticTexts["contactScreenCell"]
+        XCTAssertTrue(table.waitForExistence(timeout: 30))
+        table.tap()
+        
+        app.navigationBars["Contact Detail"].buttons["Edit"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["EditContactcancelButton"]/*[[".buttons[\"cancelButton\"]",".buttons[\"EditContactcancelButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+    }
+    
+    
+    func testAddContact(){
+        
+        let app = XCUIApplication()
+        let addButton = app.navigationBars["Contact"].buttons["Add"]
+        addButton.tap()
+        
+        let tablesQuery = app.tables
+        let firstName = tablesQuery/*@START_MENU_TOKEN@*/.textFields["First Name"]/*[[".cells.textFields[\"First Name\"]",".textFields[\"First Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if firstName.exists{
+            firstName.tap()
+            firstName.typeText("Mahendra")
+        }
+        
+        let lastNameTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["Last Name"]/*[[".cells.textFields[\"Last Name\"]",".textFields[\"Last Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if lastNameTextField.exists{
+            lastNameTextField.tap()
+            lastNameTextField.typeText("Yadav")
+        }
+        
+        let mobileTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["mobile"]/*[[".cells.textFields[\"mobile\"]",".textFields[\"mobile\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if mobileTextField.exists{
+            mobileTextField.tap()
+            mobileTextField.typeText("9935523882")
+        }
+        
+        let emailTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["email"]/*[[".cells.textFields[\"email\"]",".textFields[\"email\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if emailTextField.exists{
+            emailTextField.tap()
+            emailTextField.typeText("msy@gmail.com")
+        }
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["EditContactDoneButton"]/*[[".buttons[\"doneButton\"]",".buttons[\"EditContactDoneButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let alertButton = app.alerts["GoContact"].buttons["OK"]
+        XCTAssertTrue(alertButton.waitForExistence(timeout: 10))
+        alertButton.tap()
+        
+        addButton.tap()
+        
+    }
+    
+    func testAddContactError(){
+        let app = XCUIApplication()
+        let addButton = app.navigationBars["Contact"].buttons["Add"]
+        addButton.tap()
+        
+        let tablesQuery = app.tables
+        let editcontactdonebuttonButton = tablesQuery/*@START_MENU_TOKEN@*/.buttons["EditContactDoneButton"]/*[[".buttons[\"doneButton\"]",".buttons[\"EditContactDoneButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(editcontactdonebuttonButton.waitForExistence(timeout: 2))
+        editcontactdonebuttonButton.tap()
+        
+        let okButton = app.alerts["Error"].buttons["OK"]
+        XCTAssertTrue(okButton.waitForExistence(timeout: 2))
+        okButton.tap()
+        
+        let firstName = tablesQuery/*@START_MENU_TOKEN@*/.textFields["First Name"]/*[[".cells.textFields[\"First Name\"]",".textFields[\"First Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if firstName.exists{
+            firstName.tap()
+            firstName.typeText("Mahendra")
+        }
+        
+        
+        editcontactdonebuttonButton.tap()
+        okButton.tap()
+        
+        let lastNameTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["Last Name"]/*[[".cells.textFields[\"Last Name\"]",".textFields[\"Last Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if lastNameTextField.exists{
+            lastNameTextField.tap()
+            lastNameTextField.typeText("Yadav")
+        }
+        
+        editcontactdonebuttonButton.tap()
+        okButton.tap()
+        
+        let mobileTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["mobile"]/*[[".cells.textFields[\"mobile\"]",".textFields[\"mobile\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if mobileTextField.exists{
+            mobileTextField.tap()
+            mobileTextField.typeText("9935523882")
+        }
+        
+        editcontactdonebuttonButton.tap()
+        okButton.tap()
+        
+        let emailTextField = tablesQuery/*@START_MENU_TOKEN@*/.textFields["email"]/*[[".cells.textFields[\"email\"]",".textFields[\"email\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        if emailTextField.exists{
+            emailTextField.tap()
+            emailTextField.typeText("msy@gmail.com")
+        }
+        
+        
+        editcontactdonebuttonButton.tap()
+        let alertButton = app.alerts.buttons["OK"]
+        XCTAssertTrue(alertButton.waitForExistence(timeout: 10))
+        alertButton.tap()
+        addButton.tap()
+        
+    }
 
 }

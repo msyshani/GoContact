@@ -40,6 +40,24 @@ extension HomePresenter:HomeViewToPresenterProtocol{
         self.router?.pushAddContactScreen(from: self.view, forContact: contact)
     }
     
+    func getGroupArray(modelArray:[ContactEntity])->[[ContactEntity]]{
+        self.conatctList = modelArray.sorted(by: { $0.firstName < $1.firstName })
+        let groupContactArray = self.conatctList.reduce([[ContactEntity]]()) {
+            guard var last = $0.last else { return [[$1]] }
+            var collection = $0
+            if last.first!.firstName.prefix(1) == $1.firstName.prefix(1) {
+                last += [$1]
+                collection[collection.count - 1] = last
+            } else {
+                self.arrayIndexSection.append(String([$1].first?.firstName.prefix(1) ?? "Z"))
+                collection += [[$1]]
+            }
+            return collection
+        }
+        
+        return groupContactArray
+    }
+    
     //TableView
     func numberOfSection()->Int{
         return groupContactArray.count //Will change later
@@ -62,21 +80,7 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
         DispatchQueue.main.async {
-            self.conatctList = modelArray.sorted(by: { $0.firstName < $1.firstName })
-            
-            self.groupContactArray = self.conatctList.reduce([[ContactEntity]]()) {
-                guard var last = $0.last else { return [[$1]] }
-                var collection = $0
-                if last.first!.firstName.prefix(1) == $1.firstName.prefix(1) {
-                    last += [$1]
-                    collection[collection.count - 1] = last
-                } else {
-                    self.arrayIndexSection.append(String([$1].first?.firstName.prefix(1) ?? "Z"))
-                    collection += [[$1]]
-                }
-                return collection
-            }
-            
+            self.groupContactArray = self.getGroupArray(modelArray: self.conatctList)
             self.view?.reloadTable()
         }
     }

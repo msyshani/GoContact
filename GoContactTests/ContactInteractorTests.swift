@@ -1,5 +1,5 @@
 //
-//  ContactScreenUnitTest.swift
+//  ContactInteractorTests.swift
 //  GoContactTests
 //
 //  Created by Mahendra Yadav on 21/07/19.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ContactScreenUnitTest: XCTestCase {
+class ContactInteractorTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

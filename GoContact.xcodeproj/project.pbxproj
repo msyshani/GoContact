@@ -41,7 +41,10 @@
 		3771332F22E3408C003AB13A /* EditContactTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771332D22E3408C003AB13A /* EditContactTableCell.swift */; };
 		3771333022E3408C003AB13A /* EditContactTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771332E22E3408C003AB13A /* EditContactTableCell.xib */; };
 		3771333222E44AB5003AB13A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333122E44AB5003AB13A /* StringExtension.swift */; };
-		3771333422E481E2003AB13A /* ContactScreenUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */; };
+		3771333422E481E2003AB13A /* ContactViewUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333322E481E2003AB13A /* ContactViewUnitTest.swift */; };
+		3771333622E48577003AB13A /* ContactInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333522E48577003AB13A /* ContactInteractorTests.swift */; };
+		3771333822E4858E003AB13A /* ContactPresenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333722E4858E003AB13A /* ContactPresenterTestCase.swift */; };
+		3771333A22E485AF003AB13A /* ContactRouterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333922E485AF003AB13A /* ContactRouterTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +105,10 @@
 		3771332D22E3408C003AB13A /* EditContactTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactTableCell.swift; sourceTree = "<group>"; };
 		3771332E22E3408C003AB13A /* EditContactTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContactTableCell.xib; sourceTree = "<group>"; };
 		3771333122E44AB5003AB13A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactScreenUnitTest.swift; sourceTree = "<group>"; };
+		3771333322E481E2003AB13A /* ContactViewUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewUnitTest.swift; sourceTree = "<group>"; };
+		3771333522E48577003AB13A /* ContactInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInteractorTests.swift; sourceTree = "<group>"; };
+		3771333722E4858E003AB13A /* ContactPresenterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPresenterTestCase.swift; sourceTree = "<group>"; };
+		3771333922E485AF003AB13A /* ContactRouterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRouterTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +178,10 @@
 			children = (
 				3758CD1222E0DB0C00815080 /* GoContactTests.swift */,
 				3758CD1422E0DB0C00815080 /* Info.plist */,
-				3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */,
+				3771333322E481E2003AB13A /* ContactViewUnitTest.swift */,
+				3771333522E48577003AB13A /* ContactInteractorTests.swift */,
+				3771333722E4858E003AB13A /* ContactPresenterTestCase.swift */,
+				3771333922E485AF003AB13A /* ContactRouterTestCase.swift */,
 			);
 			path = GoContactTests;
 			sourceTree = "<group>";
@@ -432,8 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3771333422E481E2003AB13A /* ContactScreenUnitTest.swift in Sources */,
+				3771333422E481E2003AB13A /* ContactViewUnitTest.swift in Sources */,
+				3771333822E4858E003AB13A /* ContactPresenterTestCase.swift in Sources */,
 				3758CD1322E0DB0C00815080 /* GoContactTests.swift in Sources */,
+				3771333A22E485AF003AB13A /* ContactRouterTestCase.swift in Sources */,
+				3771333622E48577003AB13A /* ContactInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
