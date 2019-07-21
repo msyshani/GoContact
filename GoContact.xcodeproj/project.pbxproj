@@ -40,6 +40,8 @@
 		3771332B22E33B30003AB13A /* EditContactRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771332A22E33B30003AB13A /* EditContactRouter.swift */; };
 		3771332F22E3408C003AB13A /* EditContactTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771332D22E3408C003AB13A /* EditContactTableCell.swift */; };
 		3771333022E3408C003AB13A /* EditContactTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771332E22E3408C003AB13A /* EditContactTableCell.xib */; };
+		3771333222E44AB5003AB13A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333122E44AB5003AB13A /* StringExtension.swift */; };
+		3771333422E481E2003AB13A /* ContactScreenUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		3771332A22E33B30003AB13A /* EditContactRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactRouter.swift; sourceTree = "<group>"; };
 		3771332D22E3408C003AB13A /* EditContactTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactTableCell.swift; sourceTree = "<group>"; };
 		3771332E22E3408C003AB13A /* EditContactTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditContactTableCell.xib; sourceTree = "<group>"; };
+		3771333122E44AB5003AB13A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactScreenUnitTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 			children = (
 				3758CD1222E0DB0C00815080 /* GoContactTests.swift */,
 				3758CD1422E0DB0C00815080 /* Info.plist */,
+				3771333322E481E2003AB13A /* ContactScreenUnitTest.swift */,
 			);
 			path = GoContactTests;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				3771330E22E2F594003AB13A /* ReusableHandler.swift */,
 				3758CD3922E1E6FD00815080 /* Constants.swift */,
 				3758CD3B22E1E8C500815080 /* NetworkUtility.swift */,
+				3771333122E44AB5003AB13A /* StringExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				3771330F22E2F594003AB13A /* ImageDownloader.swift in Sources */,
 				3771332F22E3408C003AB13A /* EditContactTableCell.swift in Sources */,
 				3771331722E3073B003AB13A /* ContactDetailPresenter.swift in Sources */,
+				3771333222E44AB5003AB13A /* StringExtension.swift in Sources */,
 				3758CD3C22E1E8C500815080 /* NetworkUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3771333422E481E2003AB13A /* ContactScreenUnitTest.swift in Sources */,
 				3758CD1322E0DB0C00815080 /* GoContactTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

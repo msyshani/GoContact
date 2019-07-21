@@ -70,20 +70,23 @@ extension EditContactViewController : EditContactPresenterToViewProtocol{
         
     }
     
-    func displayError(errorMessage: String) {
-        self.showAlert(message: errorMessage)
-    }
-    
     func showSuccess(message: String){
-        self.showAlert(message: message)
-    }
-    
-    func showAlert(title:String = "GoContact", message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) {[weak self] (action) in
             //retry api call
             self?.dismiss(animated: true, completion: nil)
         }
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlert(title:String , message:String){
+        
+    }
+    
+    func showErrorAlert(title:String , message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }

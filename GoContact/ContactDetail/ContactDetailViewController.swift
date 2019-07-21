@@ -82,7 +82,16 @@ extension ContactDetailViewController : ContactDetailPresenterToViewProtocol{
     }
     
     func displayError(errorMessage: String) {
-        
+        let alert = UIAlertController(title: "GoContact", message: errorMessage, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showViewController(viewToPresent:Any){
+        if let sourceView = viewToPresent as? UIViewController {
+            self.present(sourceView, animated: true, completion: nil)
+        }
     }
     
     

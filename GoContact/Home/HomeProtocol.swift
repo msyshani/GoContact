@@ -14,6 +14,9 @@ protocol HomeViewToPresenterProtocol:class {
     var interactor:HomePresenterToInteractorProtocol? {get set}
     var router:HomePresenterToRouterProtocol? {get set}
     
+    var arrayIndexSection: [String] { get set }
+    var groupContactArray :  [[ContactEntity]] { get set }
+    
     func viewDidLoad()
     func fetchContact()
     func addContact()

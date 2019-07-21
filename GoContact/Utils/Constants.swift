@@ -31,9 +31,9 @@ extension NetwokError: LocalizedError {
         case .unknown:
             return NSLocalizedString("Something went wrong", comment: "Unknown Error")
         case .parsing:
-            return NSLocalizedString("Unable to parse data form response", comment: "Invalid Error")
+            return NSLocalizedString("Unable to parse data", comment: "Invalid Error")
         case .invalidData:
-            return NSLocalizedString("Response is not is appropriate format", comment: "Invalid data")
+            return NSLocalizedString("Response is not in appropriate format", comment: "Invalid data")
         }
     }
 }

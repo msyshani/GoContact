@@ -22,6 +22,9 @@ class ContactTableViewCell: UITableViewCell ,ReusableViewProtocol {
         super.awakeFromNib()
         // Initialization code
         contactImageView.layer.cornerRadius = 20
+        self.contactName.accessibilityIdentifier = "contactScreenCell"
+        self.contactName.isAccessibilityElement = true
+        self.contactName.accessibilityLabel = "contactScreenCell"
     }
     
     override func prepareForReuse() {
@@ -51,6 +54,7 @@ class ContactTableViewCell: UITableViewCell ,ReusableViewProtocol {
         }else{
             favouriteButton.isHidden = true
         }
+
         
     }
     

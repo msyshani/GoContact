@@ -36,6 +36,9 @@ class EditContactTableCell: UITableViewCell ,ReusableViewProtocol {
         self.cellType = key
         nameLabel.text = key.identifier
         textField.text = value
+        textField.accessibilityIdentifier = key.identifier
+        textField.isAccessibilityElement = true
+        textField.accessibilityLabel = key.identifier
     }
     
     @IBAction func EditContactTextValueChanged() {

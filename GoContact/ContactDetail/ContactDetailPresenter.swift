@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ContactDetailPresenter: NSObject {
     weak var view:ContactDetailPresenterToViewProtocol?
@@ -28,19 +29,39 @@ extension ContactDetailPresenter: ContactDetailViewToPresenterProtocol{
     }
     
     func sendMessage() {
+        guard let phoneNumber = self.interactor?.contact.phoneNumber else{
+            return
+        }
         
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            self.view?.showViewController(viewToPresent: controller)
+        }
     }
     
     func makeCall() {
-        
+        guard let phoneNumber = self.interactor?.contact.phoneNumber else{
+            return
+        }
+        phoneNumber.makeACall()
     }
     
     func sendEmail() {
-        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            self.view?.showViewController(viewToPresent: mail)
+        } else {
+            // show failure alert
+        }
     }
     
     func makeFavaourite(){
-        
+        self.interactor?.contact.isFavorite.toggle()
+        self.interactor?.favouriteContacts()
     }
     
     func editContact(){
@@ -58,14 +79,43 @@ extension ContactDetailPresenter:  ContactDetailInteractorToPresenterProtocol{
             self.view?.showContactDetail(forContact: model)
         }
         
-    }
+     }
     
     func contactFetchedRequestFailed(withError error: Error) {
         DispatchQueue.main.async {
-    
+            self.view?.displayError(errorMessage: error.localizedDescription)
         }
         
     }
     
+    func contactFavouriteRequestCompletedSuccessfully(model: ContactEntity) {
+        DispatchQueue.main.async {
+            self.interactor?.contact = model
+            self.view?.showContactDetail(forContact: model)
+        }
+        
+        
+        
+    }
     
+    func contactFavouriteRequestFailed(withError error: Error) {
+        DispatchQueue.main.async {
+            self.view?.displayError(errorMessage: error.localizedDescription)
+        }
+    }
+    
+    
+}
+
+
+extension ContactDetailPresenter : MFMessageComposeViewControllerDelegate{
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true)
+    }
+}
+
+extension ContactDetailPresenter : MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }

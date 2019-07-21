@@ -26,6 +26,7 @@ protocol ContactDetailPresenterToViewProtocol:class {
     var presenter: ContactDetailViewToPresenterProtocol? {get set}
     func showContactDetail(forContact model: ContactEntity)
     func displayError(errorMessage:String)
+    func showViewController(viewToPresent:Any)
 }
 
 //MARK: Presenter and Interactor
@@ -33,11 +34,15 @@ protocol ContactDetailPresenterToInteractorProtocol:class {
     var presenter:ContactDetailInteractorToPresenterProtocol? {get set}
     var contact:ContactEntity {get set}
     func fetchContactsFromService()
+    func favouriteContacts()
     
 }
 protocol ContactDetailInteractorToPresenterProtocol:class {
     func contactFetchedRequestCompletedSuccessfully(model:ContactEntity)
     func contactFetchedRequestFailed(withError error: Error)
+    
+    func contactFavouriteRequestCompletedSuccessfully(model: ContactEntity)
+    func contactFavouriteRequestFailed(withError error: Error)
     
 }
 

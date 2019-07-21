@@ -13,10 +13,13 @@ class HomePresenter: NSObject {
     var interactor:HomePresenterToInteractorProtocol?
     var router:HomePresenterToRouterProtocol?
     
+    var groupContactArray = [[ContactEntity]]()
     var conatctList: [ContactEntity] = []
     var contactsCount: Int {
         return conatctList.count
     }
+    var arrayIndexSection = [String]()
+
 
 }
 
@@ -39,15 +42,15 @@ extension HomePresenter:HomeViewToPresenterProtocol{
     
     //TableView
     func numberOfSection()->Int{
-        return 1 //Will change later
+        return groupContactArray.count //Will change later
     }
     
     func numberOfRow(inSection section:Int)->Int{
-        return contactsCount //Will change later
+        return groupContactArray[section].count //Will change later
     }
     
     func contact(atIndexPath index:IndexPath)->ContactEntity{
-        return conatctList[index.row] //Will change later
+        return  groupContactArray[index.section][index.row]//conatctList[index.row] //Will change later
     }
     
     func selectRow(atIndexPath index:IndexPath){
@@ -59,7 +62,21 @@ extension HomePresenter:HomeViewToPresenterProtocol{
 extension HomePresenter:HomeInteractorToPresenterProtocol{
     func contactFetchedRequestCompletedSuccessfully(modelArray:[ContactEntity]){
         DispatchQueue.main.async {
-            self.conatctList = modelArray
+            self.conatctList = modelArray.sorted(by: { $0.firstName < $1.firstName })
+            
+            self.groupContactArray = self.conatctList.reduce([[ContactEntity]]()) {
+                guard var last = $0.last else { return [[$1]] }
+                var collection = $0
+                if last.first!.firstName.prefix(1) == $1.firstName.prefix(1) {
+                    last += [$1]
+                    collection[collection.count - 1] = last
+                } else {
+                    self.arrayIndexSection.append(String([$1].first?.firstName.prefix(1) ?? "Z"))
+                    collection += [[$1]]
+                }
+                return collection
+            }
+            
             self.view?.reloadTable()
         }
     }

@@ -43,6 +43,34 @@ extension EditContactPresenter: EditContactViewToPresenterProtocol{
     }
     
     func addContact(){
+        guard let model = interactor?.contact else{
+            self.view?.showErrorAlert(title: "Error", message: "Unable to process your request due to invalid contact.")
+            return
+        }
+        
+        if model.firstName.count < 1{
+            self.view?.showErrorAlert(title: "Error", message: "Please enter valid first name.")
+            return
+        }
+        
+        if model.lastName.count < 1{
+            self.view?.showErrorAlert(title: "Error", message: "Please enter valid last name")
+            return
+        }
+        
+        guard let phoneNumber = model.phoneNumber, phoneNumber.isPhoneNumber  else {
+            self.view?.showErrorAlert(title: "Error", message: "Please enter valid mobile number")
+            return
+        }
+        
+        guard let email = model.email, email.isValidEmail()  else {
+            self.view?.showErrorAlert(title: "Error", message: "Please enter valid email")
+            return
+        }
+        
+        
+        
+        //
         if let _ = interactor?.contact.id{
             self.interactor?.updateContacts()
         }else{
@@ -93,16 +121,14 @@ extension EditContactPresenter:  EditContactInteractorToPresenterProtocol{
             }
             self.interactor?.contact = model
         }
-        
-        
-        
     }
     
     func contactUpdateRequestFailed(withError error: Error) {
-        self.view?.displayError(errorMessage: error.localizedDescription)
+        DispatchQueue.main.async {
+            self.view?.showErrorAlert(title: "Error", message: error.localizedDescription)
+        }
+        
     }
-    
-    
 }
 
 extension EditContactPresenter : EditContactTextFieldDelegate {

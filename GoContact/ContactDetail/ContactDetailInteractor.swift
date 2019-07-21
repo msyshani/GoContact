@@ -32,5 +32,19 @@ extension ContactDetailInteractor : ContactDetailPresenterToInteractorProtocol{
         }
     }
     
+    func favouriteContacts() {
+        let urlString = Contstants.API.BASE_URL + Contstants.API.ENDPOINTS.GET_CONTACT.replacingOccurrences(of: "<id>", with: String(contact.id ?? 0))
+        networkService.updateContacts(param:contact,urlString: urlString, onSuccess: { (data) in
+            if let contatct = try? JSONDecoder().decode(ContactEntity.self, from: data){
+                self.presenter?.contactFavouriteRequestCompletedSuccessfully(model: contatct)
+            }else{
+                self.presenter?.contactFavouriteRequestFailed(withError: NetwokError.parsing)
+            }
+        }) { (error) in
+            self.presenter?.contactFavouriteRequestFailed(withError: error)
+        }
+        
+    }
+    
     
 }

@@ -44,6 +44,14 @@ extension HomeViewController :UITableViewDataSource{
         return presenter?.numberOfRow(inSection: section) ?? 0
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return String(self.presenter?.groupContactArray[section].first?.firstName.prefix(1) ?? "M")
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return self.presenter?.arrayIndexSection ?? [String]()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ContactTableViewCell = tableView.dequeueReusableViewCell(indexPath: indexPath)
         if let contactModel = self.presenter?.contact(atIndexPath: indexPath){
@@ -68,7 +76,10 @@ extension HomeViewController : HomePresenterToViewProtocol{
     }
     
     func displayError(errorMessage:String){
-        
+        let alert = UIAlertController(title: "GoContact", message: errorMessage, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

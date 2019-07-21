@@ -84,6 +84,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaR-Ba-ATL">
                                                         <rect key="frame" x="5" y="5" width="76" height="68.5"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="contactDetailMessageButton" label="messageButton"/>
                                                         <state key="normal" image="message_button"/>
                                                         <connections>
                                                             <action selector="messageButtonClicked:" destination="Zxj-Bp-v1e" eventType="touchUpInside" id="KQ2-6n-EGs"/>
@@ -112,7 +113,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7C-Jd-dYB">
                                                         <rect key="frame" x="5" y="5" width="76" height="68.5"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="contactDetailCallButton" label="callButton"/>
                                                         <state key="normal" image="call_button"/>
+                                                        <connections>
+                                                            <action selector="callButtonClicked:" destination="Zxj-Bp-v1e" eventType="touchUpInside" id="6wW-Io-k4f"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnS-fP-a3y">
                                                         <rect key="frame" x="8" y="78.5" width="70" height="20.5"/>
@@ -137,7 +142,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YQ-fj-aWe">
                                                         <rect key="frame" x="5" y="5" width="76" height="68.5"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="contactDetailMailButton" label="mailButton"/>
                                                         <state key="normal" image="email_button"/>
+                                                        <connections>
+                                                            <action selector="emailButtonClicked:" destination="Zxj-Bp-v1e" eventType="touchUpInside" id="lKs-4t-432"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m02-Bo-F0o">
                                                         <rect key="frame" x="8" y="78.5" width="70" height="20.5"/>
@@ -162,7 +171,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSb-Fa-HXX">
                                                         <rect key="frame" x="5" y="5" width="76" height="68.5"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="contactDetailFavouriteButton" label="favouriteButton"/>
                                                         <state key="normal" image="favourite_button"/>
+                                                        <connections>
+                                                            <action selector="favouriteButtonClicked:" destination="Zxj-Bp-v1e" eventType="touchUpInside" id="T2w-P0-9DY"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favourite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-pb-sv5">
                                                         <rect key="frame" x="8" y="78.5" width="70" height="20.5"/>
@@ -205,13 +218,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mobile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKE-eB-MLE">
-                                                <rect key="frame" x="24" y="10" width="137.5" height="40"/>
+                                                <rect key="frame" x="20" y="10" width="105.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+919935523781" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mep-Fb-sFN">
-                                                <rect key="frame" x="178.5" y="10" width="220.5" height="40"/>
+                                                <rect key="frame" x="145.5" y="10" width="248.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -221,26 +234,26 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="TKE-eB-MLE" secondAttribute="bottom" constant="10" id="3sF-DF-yCM"/>
                                             <constraint firstItem="TKE-eB-MLE" firstAttribute="top" secondItem="tfg-gl-KLw" secondAttribute="top" constant="10" id="Cw9-HB-qpy"/>
-                                            <constraint firstItem="TKE-eB-MLE" firstAttribute="leading" secondItem="tfg-gl-KLw" secondAttribute="leading" constant="24" id="THv-lb-gyZ"/>
+                                            <constraint firstItem="mep-Fb-sFN" firstAttribute="width" secondItem="tfg-gl-KLw" secondAttribute="width" multiplier="0.6" id="MeX-kh-ufS"/>
+                                            <constraint firstItem="TKE-eB-MLE" firstAttribute="leading" secondItem="tfg-gl-KLw" secondAttribute="leading" constant="20" id="THv-lb-gyZ"/>
                                             <constraint firstAttribute="height" constant="60" id="XPP-Vo-rl8"/>
                                             <constraint firstItem="mep-Fb-sFN" firstAttribute="top" secondItem="TKE-eB-MLE" secondAttribute="top" id="Z6X-qm-okZ"/>
-                                            <constraint firstItem="mep-Fb-sFN" firstAttribute="leading" secondItem="TKE-eB-MLE" secondAttribute="trailing" constant="17" id="ZbV-M5-IAN"/>
-                                            <constraint firstItem="mep-Fb-sFN" firstAttribute="width" secondItem="TKE-eB-MLE" secondAttribute="width" multiplier="1.6" id="hdu-fB-8SC"/>
+                                            <constraint firstItem="mep-Fb-sFN" firstAttribute="leading" secondItem="TKE-eB-MLE" secondAttribute="trailing" constant="20" id="ZbV-M5-IAN"/>
                                             <constraint firstItem="TKE-eB-MLE" firstAttribute="height" secondItem="mep-Fb-sFN" secondAttribute="height" id="uzp-Kw-THH"/>
-                                            <constraint firstAttribute="trailing" secondItem="mep-Fb-sFN" secondAttribute="trailing" constant="15" id="xvn-zg-jRT"/>
+                                            <constraint firstAttribute="trailing" secondItem="mep-Fb-sFN" secondAttribute="trailing" constant="20" id="xvn-zg-jRT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-jG-cSe">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="60" width="413.5" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEa-OS-Bqw">
-                                                <rect key="frame" x="24" y="10" width="137.5" height="40"/>
+                                                <rect key="frame" x="20" y="10" width="105.5" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msy.shani@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-nJ-GYk">
-                                                <rect key="frame" x="178.5" y="10" width="220.5" height="40"/>
+                                                <rect key="frame" x="145.5" y="10" width="248" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -248,13 +261,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="uKm-nJ-GYk" secondAttribute="trailing" constant="15" id="4gx-YK-50z"/>
+                                            <constraint firstAttribute="trailing" secondItem="uKm-nJ-GYk" secondAttribute="trailing" constant="20" id="4gx-YK-50z"/>
                                             <constraint firstItem="xEa-OS-Bqw" firstAttribute="top" secondItem="dSA-jG-cSe" secondAttribute="top" constant="10" id="4vH-du-h69"/>
                                             <constraint firstItem="xEa-OS-Bqw" firstAttribute="height" secondItem="uKm-nJ-GYk" secondAttribute="height" id="5nD-Cn-bKb"/>
-                                            <constraint firstItem="xEa-OS-Bqw" firstAttribute="leading" secondItem="dSA-jG-cSe" secondAttribute="leading" constant="24" id="A2G-I2-9Eo"/>
-                                            <constraint firstItem="uKm-nJ-GYk" firstAttribute="width" secondItem="xEa-OS-Bqw" secondAttribute="width" multiplier="1.6" id="Kca-a9-k6k"/>
+                                            <constraint firstItem="xEa-OS-Bqw" firstAttribute="leading" secondItem="dSA-jG-cSe" secondAttribute="leading" constant="20" id="A2G-I2-9Eo"/>
+                                            <constraint firstItem="uKm-nJ-GYk" firstAttribute="width" secondItem="dSA-jG-cSe" secondAttribute="width" multiplier="0.6" id="Lf4-ru-y8a"/>
                                             <constraint firstItem="uKm-nJ-GYk" firstAttribute="top" secondItem="xEa-OS-Bqw" secondAttribute="top" id="Qyr-Q1-J0W"/>
-                                            <constraint firstItem="uKm-nJ-GYk" firstAttribute="leading" secondItem="xEa-OS-Bqw" secondAttribute="trailing" constant="17" id="TRT-Q7-uL1"/>
+                                            <constraint firstItem="uKm-nJ-GYk" firstAttribute="leading" secondItem="xEa-OS-Bqw" secondAttribute="trailing" constant="20" id="TRT-Q7-uL1"/>
                                             <constraint firstAttribute="bottom" secondItem="xEa-OS-Bqw" secondAttribute="bottom" constant="10" id="gNj-Of-g6K"/>
                                             <constraint firstAttribute="height" constant="60" id="klh-6r-mY5"/>
                                         </constraints>
@@ -290,7 +303,7 @@
                         <outlet property="contactName" destination="XrU-4e-t8y" id="eN8-Ke-cg8"/>
                         <outlet property="emailButton" destination="4YQ-fj-aWe" id="7sH-pv-8mE"/>
                         <outlet property="emailLabel" destination="uKm-nJ-GYk" id="K8u-FE-ffh"/>
-                        <outlet property="favouriteButton" destination="eSb-Fa-HXX" id="xps-82-dmr"/>
+                        <outlet property="favouriteButton" destination="eSb-Fa-HXX" id="dUj-83-QRb"/>
                         <outlet property="messageButton" destination="DaR-Ba-ATL" id="qiz-is-HiW"/>
                         <outlet property="mobileLabel" destination="mep-Fb-sFN" id="h7n-4W-tke"/>
                     </connections>
@@ -334,6 +347,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWt-4r-54d">
                                             <rect key="frame" x="20" y="20" width="53" height="33"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="EditContactcancelButton" label="cancelButton"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
@@ -342,6 +356,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QR-a7-iRh">
                                             <rect key="frame" x="348" y="20" width="46" height="35"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="EditContactDoneButton" label="doneButton"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <state key="normal" title="Done"/>
                                             <connections>
