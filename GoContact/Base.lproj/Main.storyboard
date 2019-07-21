@@ -26,11 +26,40 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fWW-Xm-0ef"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="j9Z-bG-Vfn">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plesse wait, Contatcs are loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxI-pJ-Clg">
+                                <rect key="frame" x="20" y="492.5" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGj-Nu-LSk">
+                                <rect key="frame" x="62" y="539" width="290" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="MOo-rP-M82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Retry"/>
+                                <connections>
+                                    <action selector="retryLoadingContacts" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHh-pP-9JG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="j9Z-bG-Vfn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="3PG-4O-glj"/>
+                            <constraint firstItem="CGj-Nu-LSk" firstAttribute="top" secondItem="MxI-pJ-Clg" secondAttribute="bottom" constant="20" id="8jt-LZ-PdD"/>
+                            <constraint firstItem="MxI-pJ-Clg" firstAttribute="top" secondItem="j9Z-bG-Vfn" secondAttribute="bottom" constant="7.5" id="BJg-jA-BRc"/>
+                            <constraint firstItem="j9Z-bG-Vfn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E3n-K0-IEn"/>
                             <constraint firstItem="rIc-D3-sLH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I8Y-nE-PLX"/>
                             <constraint firstItem="rIc-D3-sLH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="L4P-pG-cgc"/>
+                            <constraint firstItem="CGj-Nu-LSk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nwk-te-zuR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MxI-pJ-Clg" secondAttribute="trailing" constant="20" id="m3z-Pc-0JK"/>
+                            <constraint firstItem="MxI-pJ-Clg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o6j-1D-qhe"/>
+                            <constraint firstItem="CGj-Nu-LSk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="oUG-WD-nRw"/>
                             <constraint firstAttribute="bottom" secondItem="rIc-D3-sLH" secondAttribute="bottom" id="r9c-MS-u91"/>
                             <constraint firstItem="rIc-D3-sLH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yde-Vq-9CA"/>
                         </constraints>
@@ -45,7 +74,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="j9Z-bG-Vfn" id="1ch-Ve-CEQ"/>
                         <outlet property="contactTable" destination="rIc-D3-sLH" id="Knw-Ul-h8w"/>
+                        <outlet property="loaderMessageLabel" destination="MxI-pJ-Clg" id="Zef-B2-HQ0"/>
+                        <outlet property="retryButton" destination="CGj-Nu-LSk" id="jNf-3s-u3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

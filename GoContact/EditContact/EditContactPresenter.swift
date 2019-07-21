@@ -39,7 +39,7 @@ class EditContactPresenter: NSObject {
 
 extension EditContactPresenter: EditContactViewToPresenterProtocol{
     func viewDidLoad() {
-        
+        self.view?.setupView()
     }
     
     func addContact(){

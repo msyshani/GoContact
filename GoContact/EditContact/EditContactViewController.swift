@@ -30,7 +30,6 @@ class EditContactViewController: UIViewController {
     }
     
     @IBAction func saveContactButtonClicked(){
-        
         presenter?.addContact()
     }
     
@@ -66,6 +65,17 @@ extension EditContactViewController :UITableViewDataSource{
 }
 
 extension EditContactViewController : EditContactPresenterToViewProtocol{
+    
+    func setupView(){
+        if let imageStr = self.presenter?.interactor?.contact.profilePicUrl{
+            ImageDownloader.downloader.getDownloadedImage(urlStr: imageStr) { (image) in
+                if let img = image{
+                    self.contactImage.image = img
+                }
+            }
+        }
+    }
+    
     func showContactDetail(forPost model: ContactEntity) {
         
     }

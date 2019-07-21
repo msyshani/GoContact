@@ -23,6 +23,7 @@ enum NetwokError: Error {
     case unknown
     case parsing
     case invalidData
+    case noNetwork
 }
 
 extension NetwokError: LocalizedError {
@@ -34,6 +35,8 @@ extension NetwokError: LocalizedError {
             return NSLocalizedString("Unable to parse data", comment: "Invalid Error")
         case .invalidData:
             return NSLocalizedString("Response is not in appropriate format", comment: "Invalid data")
+        case .noNetwork:
+            return NSLocalizedString("Please check your internet connetion", comment: "No Internet")
         }
     }
 }

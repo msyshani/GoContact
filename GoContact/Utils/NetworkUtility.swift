@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 typealias Success = (Data) -> Void
 typealias Failure = (Error) -> Void
 
@@ -44,6 +45,10 @@ class NetworkUtility: NSObject {
     }
     
     func fetchAllContacts(urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
+        if !Reachability.isConnectedToNetwork(){
+            onError(NetwokError.noNetwork)
+            return
+        }
         if let request = getRequest(url: urlString, method: .get){
             urlSession.dataTask(with: request) { (data, response, error) in
                 if let contactData = data{
@@ -58,6 +63,10 @@ class NetworkUtility: NSObject {
     }
     
     func updateContacts(param:ContactEntity, urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
+        if !Reachability.isConnectedToNetwork(){
+            onError(NetwokError.noNetwork)
+            return
+        }
         if var request = getRequest(url: urlString, method: .put){
             let data = try? JSONEncoder().encode(param)
             request.httpBody = data
@@ -75,6 +84,10 @@ class NetworkUtility: NSObject {
     }
     
     func addContacts(param:ContactEntity, urlString:String, onSuccess:@escaping Success, onError:@escaping Failure){
+        if !Reachability.isConnectedToNetwork(){
+            onError(NetwokError.noNetwork)
+            return
+        }
         if var request = getRequest(url: urlString, method: .post){
             let data = try? JSONEncoder().encode(param)
             request.httpBody = data

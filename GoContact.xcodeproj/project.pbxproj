@@ -45,6 +45,7 @@
 		3771333622E48577003AB13A /* ContactInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333522E48577003AB13A /* ContactInteractorTests.swift */; };
 		3771333822E4858E003AB13A /* ContactPresenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333722E4858E003AB13A /* ContactPresenterTestCase.swift */; };
 		3771333A22E485AF003AB13A /* ContactRouterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333922E485AF003AB13A /* ContactRouterTestCase.swift */; };
+		3771333E22E4E0F3003AB13A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771333D22E4E0F3003AB13A /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		3771333522E48577003AB13A /* ContactInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInteractorTests.swift; sourceTree = "<group>"; };
 		3771333722E4858E003AB13A /* ContactPresenterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPresenterTestCase.swift; sourceTree = "<group>"; };
 		3771333922E485AF003AB13A /* ContactRouterTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRouterTestCase.swift; sourceTree = "<group>"; };
+		3771333D22E4E0F3003AB13A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		3758CD3822E1E6D400815080 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3771333D22E4E0F3003AB13A /* Reachability.swift */,
 				3771330D22E2F594003AB13A /* ImageDownloader.swift */,
 				3771330E22E2F594003AB13A /* ReusableHandler.swift */,
 				3758CD3922E1E6FD00815080 /* Constants.swift */,
@@ -413,6 +416,7 @@
 				3771332522E33AEA003AB13A /* EditContactViewController.swift in Sources */,
 				3771332922E33B1C003AB13A /* EditContactInteractor.swift in Sources */,
 				3758CD3722E0E5F500815080 /* HomeProtocol.swift in Sources */,
+				3771333E22E4E0F3003AB13A /* Reachability.swift in Sources */,
 				3758CD0022E0DB0900815080 /* ViewController.swift in Sources */,
 				3771331F22E31F59003AB13A /* ContactDetailTableCell.swift in Sources */,
 				3771331B22E3075E003AB13A /* ContactDetailRouter.swift in Sources */,

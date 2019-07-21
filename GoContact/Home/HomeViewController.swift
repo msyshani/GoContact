@@ -11,13 +11,17 @@ import UIKit
 class HomeViewController: UIViewController {
     var presenter: HomeViewToPresenterProtocol?
     @IBOutlet weak var contactTable: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loaderMessageLabel: UILabel!
+    @IBOutlet weak var retryButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         contactTable.estimatedRowHeight = 60
         contactTable.rowHeight = 60 //UITableView.automaticDimension
-        self.presenter?.viewDidLoad()
+        fetchContact()
         // Do any additional setup after loading the view.
     }
     
@@ -31,6 +35,19 @@ class HomeViewController: UIViewController {
 
     @IBAction func addContacts(){
         presenter?.addContact()
+    }
+    
+    @IBAction func retryLoadingContacts(){
+        fetchContact()
+    }
+    
+    func fetchContact(){
+        self.presenter?.viewDidLoad()
+        activityIndicator.startAnimating()
+        loaderMessageLabel.isHidden = false
+        retryButton.isHidden = true
+        contactTable.isHidden = true
+        loaderMessageLabel.text = "Plesse wait, Contacts are loading"
     }
 
 }
@@ -67,18 +84,31 @@ extension HomeViewController :UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter?.selectRow(atIndexPath: indexPath)
     }
-    
 }
 
 extension HomeViewController : HomePresenterToViewProtocol{
     func reloadTable(){
+        activityIndicator.stopAnimating()
+        loaderMessageLabel.isHidden = true
+        contactTable.isHidden = false
         self.contactTable.reloadData()
     }
     
     func displayError(errorMessage:String){
         let alert = UIAlertController(title: "GoContact", message: errorMessage, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        let ok = UIAlertAction(title: "Ok", style: .destructive) { (action) in
+            self.retryButton.isHidden = false
+            self.loaderMessageLabel.text = "Unable to fetch contacts, Please retry"
+            self.activityIndicator.stopAnimating()
+        }
+        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
+            self.fetchContact()
+        }
+        
+        
         alert.addAction(ok)
+        alert.addAction(retry)
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -25,6 +25,7 @@ protocol EditContactViewToPresenterProtocol:class {
 
 protocol EditContactPresenterToViewProtocol:class {
     var presenter: EditContactViewToPresenterProtocol? { get set}
+    func setupView()
     func showContactDetail(forPost model: ContactEntity)
     func showErrorAlert(title:String , message:String)
     func showSuccess(message: String)
